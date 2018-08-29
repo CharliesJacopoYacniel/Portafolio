@@ -8,13 +8,36 @@
 :root {
   --color:#999;
 }
+@import url('https://fonts.googleapis.com/css?family=Cardo|Pathway+Gothic+One');
 
+$heading-font: 'Pathway Gothic One';
+$color:steelblue;
+$card-height: 400px;
+$card-width: 450px;
+$inner-margin: 15px;
+$number-size: 35px;
+$stagger: 180px;
+$outer-margin: 90px;
+$marker-size: 9px;
 
 body {
   margin:0;
   min-width:100vh;
   min-height:100vh;
+  font-family: $heading-font,sans-serif;
   // overflow:hidden;
+}
+p {
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: $inner-margin;
+}
+img {
+  display: block;
+  // width: 100px;
+  // height: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 header {
@@ -115,17 +138,154 @@ header {
     color: white;
     padding: 150px 50px 100px 50px;
   }
+  // ===============  FIN HOME  +=============
   
-// \\\\\\\\\\\\\\\\\\\\\\\\\
-.about {
-  background: white;
-  color:#999;
-  width:100%;
-  // height: 300px;
-  padding:10% ;  
-  // left:100px;
+// ===============  INICIO  ABOUT  +=============
+// .about {
+//   background: white;
+//   color:#999;
+//   width:100%;
+//   padding:10% ; 
+//  
+// }
+
+.about{
+  width: 100%;
+  height: 100%;
+  // min-height: 100vh;
+  background: radial-gradient(circle at center center,
+                                  hsla(0,50%,50%,.9),
+                                  hsla(0,10%,10%,.9));
+                                  //   padding: 100px 20px 200px;
+  padding: 100px 20px 200px;
+  color: white;
+  font-family: Roboto;
+  .experiencia {
+    padding: 20px;
+    font-size: 3em;
+    h1{
+      font-size: 1em;
+     }
+    p {
+      font-size: .5em;
+      line-height: 2;
+    }  
+  }
+ }
+
+.line-time-year{
+  z-index: 1;
+  position: relative;
+  &:before { //linea dibujada al centro
+    content: "";
+    width: 10px;
+    position: absolute;
+    height: calc(100% - 40px);
+    background-color: #f2f2f2;
+    left: 50%;
+    margin-top: 90px;
+  }
+}
+.title-year{
+  font: bold 42px/52px Open Sans Condensed, sans-serif;
+  text-align: center;
+  padding: 20px;
+  // transition: all 0.8s ease-in-out;
 }
 
+.each-event {
+  background-color: #f4f4f4;
+  color: #777;
+  padding: 10px;
+  margin: 60px 20px;
+  width: 500px;
+  position: relative;
+  border-radius: 10px;
+  // transition: all 0.3s ease-in-out;
+  &:before {//punto de la linea de tiempo
+    content: "";
+    position: absolute;
+    top: calc(50% - 8px);
+    left: -27px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -4px rgba(64, 64, 64, 0.8);
+  }
+  &:nth-child(odd) {//posicionamiento de los items impares
+    margin-left: calc(50% + 25px);
+  }
+  &:nth-child(even) {//posicionamiento de items  impar
+    margin-left: calc(50% - 515px);
+    &:before {
+      left: calc(100% + 14px);
+    }
+  }
+}
+
+// .title.non-focus {
+//   font-size: 24px;
+//   line-height: 34px;
+//   transition: all 0.8s ease-in-out;
+// }
+// .each-event.non-focus {
+//   color: #d2d2d2;
+//   background: #e6e6e6;
+//   margin-top: 90px;
+//   transform: rotateZ(45deg);
+//   transition: all 0.8s ease-in-out;
+//   &:before {
+//     opacity: 0;
+//     background-color: #aaa;
+//   }
+// }
+//           //======= css de la otra card=====
+.card-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color:white;
+    background: steelblue;
+    font-size: 14px;
+    .card-number {
+      display: inline;
+      float: left;
+      margin: 10px;
+      padding: 15px;
+      font-size: 1rem;
+      // line-height: $number-size;
+      background: rgba(0, 0, 0, 0.17);
+      }
+      .card-title {
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      font-weight: inherit;
+      letter-spacing: 2px;
+      margin: 0;
+      padding-bottom: 6px;
+      line-height: 1rem;
+      span {
+        display: block;
+        font-size: 0.6rem;
+        margin: 0;
+      }
+      }
+  }
+
+.body{ 
+  background: gray;
+  & p {
+    // margin:0 10px;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+  }
+} 
+            // =========
+// ===============  FIN  ABOUT  +=============
+
+// =============== INICIO  PORTAFOLIO  +=============
 .portafolio {
     background: rgba(255, 0, 0, 0.6);
     padding: 10%;
@@ -171,21 +331,25 @@ header {
         grid-row: span 2;
       }
   }
-  
+  // =============== FIN  PORTAFOLIO  +=============
 
+// ===============  INCIO RECOMENDACIONES  +=============
 .recomendaciones {
    background: white;
   padding:10% ;
   color:#999;
 }
+// ===============  FIN  RECOMENDACIONES  +=============
 
+// ===============   INCIO CONTACTOS  +=============
 .contac{
   background: hsla(0,100,50,.6);
     padding:10% ;
   color:white;
 }
+// ===============  FIN  CONATACTOS  +=============
 
-
+// ===============  INCIO  FO)TER  +=============
 footer {
   background: white;
   color:#999;
